@@ -79,7 +79,7 @@ let package = Package(
 // If the `SWIFTCI_USE_LOCAL_DEPS` environment variable is set,
 // we're building in the Swift.org CI system alongside other projects in the Swift toolchain and
 // we can depend on local versions of our dependencies instead of fetching them remotely.
-if ProcessInfo.processInfo.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil {
+if ProcessInfo.processInfo.environment["SWIFTCI_USE_LOCAL_DEPS"] == nil && ProcessInfo.processInfo.environment["YOCKOW_USE_LOCAL_PACKAGES"] == nil {
     package.dependencies += [
         .package(url: "https://github.com/apple/swift-crypto.git", "2.5.0"..<"4.0.0"),
         .package(url: "https://github.com/apple/swift-asn1.git", from: "1.1.0"),
